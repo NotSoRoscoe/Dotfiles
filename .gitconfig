@@ -1,3 +1,10 @@
 [user]
 	email = roscoedw@gmail.com
 	name = NotSoRoscoe
+[core]
+    editor = vim
+[alias]
+    pushf = push --force-with-lease
+    lol = log --graph --decorate --oneline
+[init]
+    defaultbranch = main

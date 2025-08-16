@@ -1,4 +1,5 @@
 *
+zsh/local_alliases.zsh
 
 !.gitignore
 !.gitconfig
@@ -6,3 +7,6 @@
 !.vim/*
 !.vimrc
 !.zshrc
+!zsh/
+!zsh/*
+!.tmux.conf
