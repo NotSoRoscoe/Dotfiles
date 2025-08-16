@@ -9,5 +9,4 @@
 !zsh/
 !zsh/*
 !.tmux.conf
-
 zsh/local_alliases.zsh
