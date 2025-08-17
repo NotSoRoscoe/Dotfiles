@@ -1,5 +1,4 @@
 *
-zsh/local_alliases.zsh
 
 !.gitignore
 !.gitconfig
@@ -10,3 +9,5 @@ zsh/local_alliases.zsh
 !zsh/
 !zsh/*
 !.tmux.conf
+
+zsh/local_alliases.zsh
