@@ -61,4 +61,4 @@ $ZSH_CUSTOM/aliases.zsh
 # For a full list of active aliases, run `alias`.
 
 #TODO make this a local machine command
-startvpn
+#startvpn
