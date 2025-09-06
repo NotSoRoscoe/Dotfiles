@@ -13,8 +13,7 @@ filetype plugin indent on
 
 " Whitespace
 set nowrap                  " Default to not wrap lines of text
-set textwidth=90            " Force line to stay withing # characters based on whitespace
-" set colorcolumn=90          " Visual line of where textwidth is
+"set textwidth=90            " Force line to stay withing # characters based on whitespace
 set shiftwidth=4            " Number of spaces to use for each step of (auto)indent
 set tabstop=4               " Number of spaces a tab counts for
 set expandtab               " Turn tabs into spaces
@@ -66,13 +65,6 @@ nnoremap tt :tab split<CR>          " tt to fullscreen a split into a tab. ZZ to
 nnoremap <leader>d :r !date -I<CR>
 
 " Centered popup (box-style) for fzf
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-"let g:fzf_preview_window = ['right:60%', 'ctrl-/']  " preview on Right, toggle with Ctrl-/
-
-" Use a border around the box (fzf flag picked up inside Vim too)
-"et $FZF_DEFAULT_OPTS = '--border --margin=1'
-" Better fzf layout for vertical monitors
-" Vim-compatible centered popup
 let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.90 } }
 let g:fzf_preview_window = ['up:75%', 'ctrl-/']  " preview above, toggle with Ctrl-/
 
@@ -80,7 +72,14 @@ let $BAT_THEME='TwoDark'
 let $FZF_DEFAULT_OPTS = '--border --margin=1'
 let g:fzf_files_options = '--preview "bat --style=numbers --color=always --line-range=:200 {}"'
 
-
 nnoremap <leader>ff :Files<CR>
 
 
+" add mapping for auto closing
+imap "<tab> ""<Left>
+imap '<tab> ''<Left>
+imap (<tab> ()<Left>
+imap [<tab> []<Left>
+imap {<tab> {}<Left>
+imap {<CR> {<CR>}<ESC>O
+imap {;<CR> {<CR>};<ESC>O
