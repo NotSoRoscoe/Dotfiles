@@ -5,6 +5,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -46,12 +48,39 @@ set smartcase
 set history=1000
 set cmdheight=2
 
-"toggle relative line numbers with ctrl-l
+" toggle relative line numbers with ctrl-l
 nnoremap <C-l> :set rnu!<CR> 
 
-let g:mapleader = " "
+let mapleader = " "
+
+" Map kj as escape character for ease
 inoremap kj <esc>
+cnoremap kj <esc> 
+
 nnoremap ,s :source ~/.vimrc<CR>
-nnoremap <leader>d :r !date -I<CR>kJ
-nnoremap <leader>i hello<esc> 2025-06-29
+nnoremap <Leader>w :w<CR>           " faster way to save
+nnoremap <Leader>q :q<CR>           " faster way to quit
+nnoremap tt :tab split<CR>          " tt to fullscreen a split into a tab. ZZ to write & exit
+
+" test mappings
+nnoremap <leader>d :r !date -I<CR>
+
+" Centered popup (box-style) for fzf
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+"let g:fzf_preview_window = ['right:60%', 'ctrl-/']  " preview on Right, toggle with Ctrl-/
+
+" Use a border around the box (fzf flag picked up inside Vim too)
+"et $FZF_DEFAULT_OPTS = '--border --margin=1'
+" Better fzf layout for vertical monitors
+" Vim-compatible centered popup
+let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.90 } }
+let g:fzf_preview_window = ['up:75%', 'ctrl-/']  " preview above, toggle with Ctrl-/
+
+let $BAT_THEME='TwoDark'
+let $FZF_DEFAULT_OPTS = '--border --margin=1'
+let g:fzf_files_options = '--preview "bat --style=numbers --color=always --line-range=:200 {}"'
+
+
+nnoremap <leader>ff :Files<CR>
+
 

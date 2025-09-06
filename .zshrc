@@ -2,17 +2,12 @@
 export PATH=/usr/local/bin:/usr/bin:$HOME/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
+# --- OMZ Setup ---
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
 HYPHEN_INSENSITIVE="true"
-
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Change how often to auto-update (in days).
 zstyle ':omz:update' frequency 90
 
 # Uncomment the following line if pasting URLs and other text is messed up.
@@ -29,14 +24,12 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.config/zsh
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# setopt PROMPT_SUBST
 source $ZSH/oh-my-zsh.sh
+source $ZSH_CUSTOM/fzf.zsh
+source $ZSH_CUSTOM/aliases.zsh
 
 # User configuration
 export MANPATH="/usr/local/man:$MANPATH"
@@ -49,16 +42,11 @@ if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
+bindkey -v
+bindkey -M viins 'kj' vi-cmd-mode
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-$ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
+# for my laptop
+if [ -f "/etc/arch-release" ]; then
+    startvpn
+fi
 
-#TODO make this a local machine command
-#startvpn
