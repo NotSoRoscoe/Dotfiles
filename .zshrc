@@ -45,8 +45,4 @@ fi
 bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
 
-# for my laptop
-if [ -f "/etc/arch-release" ]; then
-    startvpn
-fi
 
