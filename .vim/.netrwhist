@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/roscoe/.vim/bundle'
+let g:netrw_dirhist_5='/home/roscoe/.vim'
+let g:netrw_dirhist_4='/home/roscoe/projects/RustBook/05_sturcts/sturct_and_methods'
 let g:netrw_dirhist_3='/home/roscoe/.config/session'
 let g:netrw_dirhist_2='/home/roscoe/rustlings/exercises/01_variables'
 let g:netrw_dirhist_1='/home/roscoe/rustlings/exercises'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_0='/home/roscoe/rustlings/exercises/00_intro'
 let g:netrw_dirhist_9='/home/roscoe/.config/wofi'
 let g:netrw_dirhist_8='/home/roscoe/.config/kde.org'
 let g:netrw_dirhist_7='/home/roscoe/.config/waybar'
-let g:netrw_dirhist_6='/home/roscoe/.config/waybar/scripts'
-let g:netrw_dirhist_5='/home/roscoe/.config/waybar'
-let g:netrw_dirhist_4='/home/roscoe/.mozilla/firefox'

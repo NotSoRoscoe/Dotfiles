@@ -2,9 +2,9 @@
 
 !.gitignore
 !.gitconfig
-!.vim
-!.vim/*
 !.vimrc
+!.vim/
+!.vim/*
 !.zshrc
 !zsh/
 !zsh/*

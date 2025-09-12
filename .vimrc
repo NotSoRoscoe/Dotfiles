@@ -1,15 +1,16 @@
 set nocompatible " keep things vim and not vi. Required for some plugins
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'iamcco/markdown-preview.nvim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+call plug#begin('~/.vim/bundle/')
 
-call vundle#end()
-filetype plugin indent on
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+call plug#end()
+
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
 " Whitespace
 set nowrap                  " Default to not wrap lines of text
@@ -28,8 +29,8 @@ set number                  " Line numbers
 set relativenumber          " Have line numbers show line distance from cursor
 set ruler                   " Show line, col number. Defaults to bottom right
 set hlsearch                " Highlight searches
-
-colorscheme zaibatsu
+set cmdheight=2
+set encoding=utf-8
 
 " Search down into subfolders, provide tab completion
 " use :find with a * to make it a fuzzy finder for file names
@@ -42,7 +43,6 @@ command! MakeTags !ctags -R .
 " Browsing files settings
 let g:netrw_banner=0        "disable annoying banner
 
-syntax on
 set smartcase
 set history=1000
 set cmdheight=2
@@ -70,7 +70,7 @@ let g:fzf_preview_window = ['up:75%', 'ctrl-/']  " preview above, toggle with Ct
 
 let $BAT_THEME='TwoDark'
 let $FZF_DEFAULT_OPTS = '--border --margin=1'
-let g:fzf_files_options = '--preview "bat --style=numbers --color=always --line-range=:200 {}"'
+let g:fzf_files_options = '--preview "/usr/local/bin/bat --style=numbers --color=always --line-range=:200 {}"'
 
 nnoremap <leader>ff :Files<CR>
 

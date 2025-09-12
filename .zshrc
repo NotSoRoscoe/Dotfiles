@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:/usr/bin:$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=/usr/local/bin:/usr/bin:$HOME/bin:$HOME/.local/bin:$HOME/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
 # --- OMZ Setup ---
@@ -46,3 +46,5 @@ bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
 
 
+export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
+export GOTOOLCHAIN=auto
