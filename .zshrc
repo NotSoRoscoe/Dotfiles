@@ -45,6 +45,5 @@ fi
 bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
 
-
-export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
-export GOTOOLCHAIN=auto
+export COLORTERM=truecolor
+export PATH="$HOME/.cargo/bin:$PATH"
