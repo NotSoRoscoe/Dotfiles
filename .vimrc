@@ -16,11 +16,12 @@ Plug 'tpope/vim-fugitive'                           " Git Integration
 Plug 'tpope/vim-commentary'                         " Commenting in vim style gc<motion>
                                                     " to add unsupported filetype:
                                                     " autocmd FileType apache setlocal commentstring=#\ %s
-Plug 'tpope/vim-repeat'                             " use . with plugin commands
+Plug 'tpope/vim-repeat'                             " Use . with plugin commands
 Plug 'tpope/vim-surround'                           " cs ds yss become a surround mapping
-Plug 'junegunn/fzf'                                 " fuzzy finder
+Plug 'junegunn/fzf'                                 " Fuzzy finder
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'                           " better file explorer than netrw 
+Plug 'preservim/nerdtree'                           " Better file explorer than netrw 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Code completion   
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }       " Nice Pastel Color Themes
 
 call plug#end()
@@ -128,13 +129,13 @@ nnoremap <leader>d :r !date -I<CR>
 
 " Add mapping for auto closing characters in the style of IDEs
 " this may become obsolete with a plugin
-imap "<tab> ""<Left>
-imap '<tab> ''<Left>
-imap (<tab> ()<Left>
-imap [<tab> []<Left>
-imap {<tab> {}<Left>
-imap {<CR> {<CR>}<ESC>O
-imap {;<CR> {<CR>};<ESC>O
+" imap "<tab> ""<Left>
+" imap '<tab> ''<Left>
+" imap (<tab> ()<Left>
+" imap [<tab> []<Left>
+" imap {<tab> {}<Left>
+" imap {<CR> {<CR>}<ESC>O
+" imap {;<CR> {<CR>};<ESC>O
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 
@@ -178,6 +179,8 @@ let g:fzf_files_options = '--preview "/usr/local/bin/bat --style=numbers --color
 
 "==================================================================================================== 
 " YouCompleteMe [Plugin] - Code Completions
+" 
+" recently replaced YCM wit COC so below isn't valid unless I switch back
 "==================================================================================================== 
 " Options - 
 "   menuone - still show menu if there is only 1 completion
