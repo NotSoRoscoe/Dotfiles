@@ -12,17 +12,15 @@ set nocompatible " keep things vim and not vi. Required for some plugins
 call plug#begin('~/.vim/bundle/')
 
 Plug 'iamcco/markdown-preview.nvim'                 " Live markdown preview
-
+Plug 'tpope/vim-fugitive'                           " Git Integration
 Plug 'tpope/vim-commentary'                         " Commenting in vim style gc<motion>
                                                     " to add unsupported filetype:
                                                     " autocmd FileType apache setlocal commentstring=#\ %s
-
 Plug 'tpope/vim-repeat'                             " use . with plugin commands
 Plug 'tpope/vim-surround'                           " cs ds yss become a surround mapping
 Plug 'junegunn/fzf'                                 " fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'                           " better file explorer than netrw 
-Plug 'Valloric/YouCompleteMe'                       " Completions 
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }       " Nice Pastel Color Themes
 
 call plug#end()
