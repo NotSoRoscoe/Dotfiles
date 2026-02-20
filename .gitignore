@@ -4,8 +4,8 @@
 !.gitconfig
 !.vimrc
 !.vim/
-.vim/bundle/
 !.vim/**/*
+.vim/bundle/
 !.zshrc
 !zsh/
 !zsh/*
