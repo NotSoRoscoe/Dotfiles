@@ -67,6 +67,10 @@ let g:netrw_banner=0        "disable annoying banner for Netrw file browser
 " Misc options
 set history=1000            " number of CMD history commands to store
 set noswapfile              " disable annoying swap files 
+set nobackup                " disable backupfiles 
+set nowritebackup           " some LSPs have issues with backups
+set updatetime=300          " default is 4000ms to slow for autocomplete experience
+"set signcolumn=yes          " stops shifting with diagnostics
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 
@@ -204,6 +208,28 @@ let g:ycm_rust_analyzer_binary_path = expand('~/.cargo/bin/rust-analyzer')
 
 
 "==================================================================================================== 
+" Conquer of Compeltion (Coc) [Plugin] - Code Completions
+"==================================================================================================== 
+" general functions to make the key bind section easier to read
+" function name describes as well as I could
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+"░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
+"░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
+
+
+
+"==================================================================================================== 
 " Key Binds for Plugins
 "==================================================================================================== 
 " FZF keybinds
@@ -219,21 +245,44 @@ let g:ycm_rust_analyzer_binary_path = expand('~/.cargo/bin/rust-analyzer')
     " <Leader>fh - open fuzzy help search
     nnoremap <silent> <leader>fh :Helptags<CR>
 
-" YCM keybinds
-    " Navigation 
+" COC keybinds
+    " <Tab> to cycle completions
+    inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#pum#next(1) :
+        \ CheckBackspace() ? "\<Tab>" :
+        \ coc#refresh()
+
+    " Shift <Tab> to cycle backwards
+    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>" 
+
+    " Confirm completion with Enter
+    inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() :
+        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    
     " <leader>gd for go to definition 
-    nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+    nmap <silent> <leader>gd <Plug>(coc-definition)
 
     " <leader>gr for go to references 
-    nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+    nmap <silent> <leader>gr <Plug>(coc-references)
 
-    " <leader>ty gives info on type
-    nnoremap <silent> <leader>ty :YcmCompleter GetType<CR>
+    " Shift-K show documentation in a preview window
+    nnoremap <silent> K :call ShowDocumentation()<CR>
 
-    " <leader>fi Quick fix
-    nnoremap <silent> <leader>fi :YcmCompleter FixIt<CR>
+" YCM keybinds - using COC keeping for now
+    " " Navigation 
+    " " <leader>gd for go to definition 
+    " nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 
-    nnoremap <silent> <Leader>d <plug>(YCMHover)
+    " " <leader>gr for go to references 
+    " nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+
+    " " <leader>ty gives info on type
+    " nnoremap <silent> <leader>ty :YcmCompleter GetType<CR>
+
+    " " <leader>fi Quick fix
+    " nnoremap <silent> <leader>fi :YcmCompleter FixIt<CR>
+
+    " nnoremap <silent> <Leader>d <plug>(YCMHover)
 
 " NERDTree keybinds
     " Open/close NerdTree
