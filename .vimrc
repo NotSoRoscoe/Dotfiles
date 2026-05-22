@@ -70,7 +70,7 @@ set noswapfile              " disable annoying swap files
 set nobackup                " disable backupfiles 
 set nowritebackup           " some LSPs have issues with backups
 set updatetime=300          " default is 4000ms to slow for autocomplete experience
-"set signcolumn=yes          " stops shifting with diagnostics
+set signcolumn=yes          " stops shifting with diagnostics
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 
@@ -153,6 +153,7 @@ set background=dark
 
 let g:catppuccin_flavour = 'mocha'   " latte, frappe, macchiato, mocha
 let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+highlight! link SignColumn Normal 
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 
@@ -267,6 +268,8 @@ endfunction
 
     " Shift-K show documentation in a preview window
     nnoremap <silent> K :call ShowDocumentation()<CR>
+    
+    nmap <silent> <leader>gf <Plug>(coc-fix-current)
 
 " YCM keybinds - using COC keeping for now
     " " Navigation 
@@ -289,4 +292,5 @@ endfunction
     nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
 "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
+
 
